@@ -7,13 +7,13 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
-from account import views as account_views
+
+from flight import views as flight_views
 
 router = routers.DefaultRouter()
-router.register(r'users', account_views.UserViewSet)
-router.register(r'clients', account_views.ClientViewSet)
-router.register(r'employees', account_views.EmployeeViewSet)
-router.register(r'psychologists', account_views.PsychologistViewSet)
+
+
+router.register(r'tickets', flight_views.FlightTicketViewSet)
 
 
 # Wire up our API using automatic URL routing.
@@ -31,3 +31,5 @@ import debug_toolbar
 urlpatterns = [
     path('__debug__/', include(debug_toolbar.urls)),
 ] + urlpatterns
+
+
